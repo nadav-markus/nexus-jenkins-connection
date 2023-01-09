@@ -12,13 +12,13 @@ pipeline {
 
         stage('Building our image') {
             steps{
-                dir("app") {
+                
                     script {
 			echo "build has started"
                         dockerImagetag = docker.build registry + ":$BUILD_NUMBER"
                         dockerImageLatest = docker.build registry + ":latest"
                     }
-                }
+               
             }
         }
  
