@@ -12,26 +12,15 @@ pipeline {
 
         stage('Building our image') {
             steps{
-                
                     script {
 			echo "build has started"
-                        dockerImagetag = docker.build registry + ":$BUILD_NUMBER"
-                        dockerImageLatest = docker.build registry + ":latest"
+                        docker.build("nginx_test")
                     }
                
             }
         }
  
-        stage('Deploy to dockerhub') {
-            steps{
-                script {
-                   	docker.withRegistry( '', registryCredential ) {
-                        dockerImagetag.push()
-                        dockerImageLatest.push()
-                    }
-                }
-            }
-        }
+
 	
         }
     
