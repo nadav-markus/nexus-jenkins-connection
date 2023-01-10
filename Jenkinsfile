@@ -21,7 +21,7 @@ pipeline {
             steps{
                     script {
 			echo "push has started"
-                        docker.withRegistry( 'http://'+registry, registryCredentials ) {
+                        docker.withRegistry( 'http://'+registry, registryCredentials ) 
                         dockerImage.push('latest')
                     }
                
