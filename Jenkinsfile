@@ -20,8 +20,10 @@ pipeline {
         stage('pushing image') {
             steps{
                     script {
+			  
 			echo "push has started"
-                        docker.withRegistry( 'http://'+registry, registryCredentials ) 
+			sh 'docker login -u admin -p 123456 localhost:9001'
+                        //docker.withRegistry( 'http://'+registry, registryCredentials ) 
                         dockerImage.push('alpine-test')
                     }
                
