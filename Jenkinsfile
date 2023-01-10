@@ -22,7 +22,7 @@ pipeline {
                     script {
 			echo "push has started"
                         docker.withRegistry( 'http://'+registry, registryCredentials ) 
-                        dockerImage.push('latest')
+                        dockerImage.push('alpine-test')
                     }
                
             }
