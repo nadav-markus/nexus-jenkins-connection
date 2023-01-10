@@ -23,6 +23,8 @@ pipeline {
 			  
 			echo "push has started"
 			sh 'docker login -u admin -p 123456 localhost:9001'
+			sh 'docker tag alpine-test localhost:9001/alpine-test'
+
                         //docker.withRegistry( 'http://'+registry, registryCredentials ) 
                         dockerImage.push('alpine-test')
                     }
