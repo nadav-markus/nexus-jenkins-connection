@@ -2,10 +2,8 @@ pipeline {
     agent any
 
     environment {
-        registry = "dockerq12121212/app"
-        registryCredential = 'dockerhub_id'
-        dockerImagetag = ''
-        dockerImageLatest=''
+        registryCredentials = "nexus"
+        registry = "nexus:8081"
     }
 
     stages {
@@ -23,7 +21,8 @@ pipeline {
             steps{
                     script {
 			echo "push has started"
-                        sh 'docker push 172.23.0.2:8081/repository/myrepo/alpine-test}'
+                        docker.withRegistry( 'http://'+registry, registryCredentials ) {
+                        dockerImage.push('latest')
                     }
                
             }
