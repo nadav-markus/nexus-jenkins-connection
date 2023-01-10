@@ -23,7 +23,7 @@ pipeline {
             steps{
                     script {
 			echo "push has started"
-                        sh 'docker push http://localhost:8081/repository/myrepo/alpine-test}'
+                        sh 'docker push 172.23.0.2:8081/repository/myrepo/alpine-test}'
                     }
                
             }
