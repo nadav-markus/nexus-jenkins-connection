@@ -14,7 +14,16 @@ pipeline {
             steps{
                     script {
 			echo "build has started"
-                        docker.build("nginx_test")
+                        docker.build("alpine-test")
+                    }
+               
+            }
+        }
+        stage('pushing image') {
+            steps{
+                    script {
+			echo "push has started"
+                        sh 'docker push http://nexus:8081/alpine-test}'
                     }
                
             }
