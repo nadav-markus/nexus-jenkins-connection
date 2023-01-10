@@ -24,7 +24,7 @@ pipeline {
 			echo "push has started"
 			sh 'docker login -u admin -p 123456 localhost:9001'
 			sh 'docker tag alpine-test localhost:9001/alpine-test'
-			sh 'docker push localhost:9001/alpine_test'
+			sh 'docker push localhost:9001/alpine-test'
 
                         //docker.withRegistry( 'http://'+registry, registryCredentials ) 
                         //dockerImage.push('alpine-test')
