@@ -23,7 +23,7 @@ pipeline {
             steps{
                     script {
 			 withSonarQubeEnv(installationName: 'sonarqube'){
-			 sh "${tool 'SonarScanner 4.0'}/bin/sonar-scanner"
+			 sh './mvnw clean sonar:sonar'
 			    }
 
                     
