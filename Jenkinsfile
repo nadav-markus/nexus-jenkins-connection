@@ -14,6 +14,9 @@ pipeline {
                     script {
 			echo "build has started"
                         docker.build("alpine-test")
+			    withSonarQubeEnv(installationName: 'sonarqube'){
+				   sh 'mvn clean package sonar:sonar'
+			    }
                     }
                
             }
