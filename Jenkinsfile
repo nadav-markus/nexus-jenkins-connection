@@ -26,7 +26,7 @@ pipeline {
 			 sh "${tool 'SonarScanner 4.0'}/bin/sonar-scanner"
 			    }
 
-                    }
+                    
                
             }
         }
