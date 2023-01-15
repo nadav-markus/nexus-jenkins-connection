@@ -14,13 +14,30 @@ pipeline {
                     script {
 			echo "build has started"
                         docker.build("alpine-test")
-			    withSonarQubeEnv(installationName: 'sonarqube'){
-				  sh "${tool 'SonarScanner 4.0'}/bin/sonar-scanner"
-			    }
+
                     }
                
             }
         }
+        stage('Sonarqube Analysis') {
+            steps{
+                    script {
+			 withSonarQubeEnv(installationName: 'sonarqube'){
+			 sh "${tool 'SonarScanner 4.0'}/bin/sonar-scanner"
+			    }
+
+                    }
+               
+            }
+        }
+
+	    
+	   stage('Sonarqube Analysis')
+	   		 {
+		    		 withSonarQubeEnv(installationName: 'sonarqube'){
+				  sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+			    }
+	    }
 //         stage('pushing image') {
 //             steps{
 //                     script {
