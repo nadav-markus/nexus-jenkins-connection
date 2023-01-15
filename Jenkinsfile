@@ -26,7 +26,7 @@ pipeline {
 			sh 'docker login -u $NEXUS_CREDS_USR -p $NEXUS_CREDS_PSW localhost:9001'
             
 			   
-			#sh 'docker login -u admin -p 123456 localhost:9001'
+			sh 'docker login -u admin -p 123456 localhost:9001'
 			sh 'docker tag alpine-test localhost:9001/alpine-test'
 			sh 'docker push localhost:9001/alpine-test'
 
