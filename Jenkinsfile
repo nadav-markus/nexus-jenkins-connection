@@ -12,9 +12,10 @@ pipeline {
             steps{
                     script {
 			 //withSonarQubeEnv(installationName: 'sonarqube'){
-			 def scannerHome = tool 'SonarScanner 4.0';
-              		 withSonarQubeEnv('sonarqube') {
-      			 sh "${scannerHome}/bin/sonar-scanner"
+			    	 echo ("scan has started")
+				 def scannerHome = tool 'SonarScanner 4.0';
+              			 withSonarQubeEnv('sonarqube') {
+      				 sh "${scannerHome}/bin/sonar-scanner"
                                  
 			    }
 
