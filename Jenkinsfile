@@ -15,7 +15,7 @@ pipeline {
 			echo "build has started"
                         docker.build("alpine-test")
 			    withSonarQubeEnv(installationName: 'sonarqube'){
-				  sh "${scannerHome}/bin/sonar-scanner"
+				  sh "${tool 'SonarScanner 4.0'}/bin/sonar-scanner"
 			    }
                     }
                
