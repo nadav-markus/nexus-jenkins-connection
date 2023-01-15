@@ -8,7 +8,20 @@ pipeline {
     }
 
     stages {
+        stage('Sonarqube Analysis') {
+            steps{
+                    script {
+			 //withSonarQubeEnv(installationName: 'sonarqube'){
+			 def scannerHome = tool 'SonarScanner 4.0';
+              		 withSonarQubeEnv('sonarqube') {
+      			 sh "${scannerHome}/bin/sonar-scanner"
+                                 }
+			    }
 
+                    
+		    }
+            }
+        }
         stage('Building our image') {
             steps{
                     script {
@@ -19,17 +32,7 @@ pipeline {
                
             }
         }
-        stage('Sonarqube Analysis') {
-            steps{
-                    script {
-			 withSonarQubeEnv(installationName: 'sonarqube'){
-			 sh '. clean sonar:sonar'
-			    }
 
-                    
-		    }
-            }
-        }
 
 
 //         stage('pushing image') {
