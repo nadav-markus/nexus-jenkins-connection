@@ -2,11 +2,11 @@
 pipeline {
     agent any
 
-    environment {
-        registryCredentials = "nexus"
-        registry = "nexus:8081"
-	NEXUS_CREDS = credentials('nexus')
-    }
+//     environment {
+//         registryCredentials = "nexus"
+//         registry = "nexus:8081"
+// 	NEXUS_CREDS = credentials('nexus')
+//     }
 
     stages {
 	    stage('SonarQube Analysis') {
