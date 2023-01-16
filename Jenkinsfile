@@ -23,10 +23,10 @@ pipeline {
 			echo "build has started"
                         docker.build("alpine-test")
 
-                    }
+                       }
                
+                }
             }
-        }
 
 
 
@@ -41,10 +41,9 @@ pipeline {
 
                         //docker.withRegistry( 'http://'+registry, registryCredentials ) 
                         //dockerImage.push('alpine-test')
-                    }
-               
-            }
-        }
+						    }	
+         			 }
+			}
     }
        
     
