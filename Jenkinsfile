@@ -17,6 +17,7 @@ pipeline {
 //               			 withSonarQubeEnv('sonarqube') {
 //       				 sh "${scannerHome}/bin/sonar-scanner"
                                  withSonarQubeEnv(installationName: 'sonarqube'){
+					 sh'mvn sonar:sonar'
 			    }
 
                     
